@@ -56,7 +56,7 @@ test:
 # recess & uglifyjs are required
 #
 
-bootstrap: less/* js/*
+bootstrap: less/* js/* bootstrap/*
 	mkdir -p bootstrap/img
 	mkdir -p bootstrap/css
 	mkdir -p bootstrap/js
@@ -93,6 +93,7 @@ watch:
 .PHONY: docs watch gh-pages
 
 deploy: bootstrap
+	mkdir -p ${PREFIX}/stylesheets/ ${PREFIX}/javascripts/ ${PREFIX}/images/
 	cp bootstrap/css/bootstrap.css ${PREFIX}/stylesheets/
 	cp bootstrap/css/bootstrap.min.css ${PREFIX}/stylesheets/
 	cp bootstrap/css/bootstrap-responsive.css ${PREFIX}/stylesheets/
