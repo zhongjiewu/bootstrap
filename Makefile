@@ -56,7 +56,7 @@ test:
 # recess & uglifyjs are required
 #
 
-bootstrap: less/* js/* bootstrap/*
+bootstrap: less/* js/*
 	mkdir -p bootstrap/img
 	mkdir -p bootstrap/css
 	mkdir -p bootstrap/js
@@ -66,7 +66,7 @@ bootstrap: less/* js/* bootstrap/*
 	recess --compile ${BOOTSTRAP_RESPONSIVE_LESS} > bootstrap/css/bootstrap-responsive.css
 	recess --compress ${BOOTSTRAP_RESPONSIVE_LESS} > bootstrap/css/bootstrap-responsive.min.css
 	cat js/bootstrap-transition.js js/bootstrap-alert.js js/bootstrap-button.js js/bootstrap-carousel.js js/bootstrap-collapse.js js/bootstrap-dropdown.js js/bootstrap-modal.js js/bootstrap-tooltip.js js/bootstrap-popover.js js/bootstrap-scrollspy.js js/bootstrap-tab.js js/bootstrap-typeahead.js > bootstrap/js/bootstrap.js
-	echo -e "/*!\n* Bootstrap.js by @fat & @mdo\n* Copyright 2012 Twitter, Inc.\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > bootstrap/js/bootstrap.min.js
+	echo "/*!\n* Bootstrap.js by @fat & @mdo\n* Copyright 2012 Twitter, Inc.\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > bootstrap/js/bootstrap.min.js
 	uglifyjs -nc bootstrap/js/bootstrap.js >> bootstrap/js/bootstrap.min.js || rm bootstrap/js/bootstrap.min.js
 
 #
