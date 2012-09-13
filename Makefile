@@ -6,7 +6,6 @@ DATE=$(shell date +%I:%M%p)
 CHECK=\033[32m✔\033[39m
 HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
-
 #
 # BUILD DOCS
 #
@@ -106,3 +105,15 @@ haunt:
 
 
 .PHONY: docs watch gh-pages
+
+PREFIX=../../app/assets
+JS_DIR=${PREFIX}/javascripts
+CSS_DIR=${PREFIX}/stylesheets
+IMG_DIR=${PREFIX}/images
+
+deploy: bootstrap
+	mkdir -p ${JS_DIR} ${CSS_DIR} ${IMG_DIR}
+	cp bootstrap/css/bootstrap* ${CSS_DIR}
+	cp bootstrap/js/bootstrap* ${JS_DIR}
+	cp bootstrap/img/* ${IMG_DIR}
+	rm -rf bootstrap
